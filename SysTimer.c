@@ -1,8 +1,5 @@
 #include "SysTimer.h"
 
-uint32_t delay_count = 0;
-uint8_t flag = 0;
-
 //#define CLKSOURCE (0 << 2)
 //#define TICKINT	(1 << 1)
 //#define ENABLE	(1 << 0)
@@ -13,21 +10,13 @@ void SysTick_Handler(void)
 	{
 		delay_count--;
 	}
-	else{flag = 1;}
+	else {flag = 1;}
 	
 }
 //-----------------------------------------------------------------------------------
 //
 //-----------------------------------------------------------------------------------
-void delay_ms(uint32_t delay_temp)
-{
-	delay_count = delay_temp;
-	while(delay_count) {}
-}
-//-----------------------------------------------------------------------------------
-//
-//-----------------------------------------------------------------------------------
-void Init_SysTick(void)
+void SysTick_ini(void)
 {
 //	SysTick_Type Init_SysTick;
 //	Init_SysTick.LOAD = (1000000/1000)-1;
