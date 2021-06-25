@@ -1,11 +1,20 @@
-#include "stm32f7xx.h"                  // Device header
-
-volatile uint8_t i = 0;									// volatile - is not affected by compliler
+#include "main.h"
+#include "Clock.h"
+#include "SysTimer.h"
+#include "LED.h"
 
 int main(void)
 {
-	while(1)
+	Clock_ini();
+	SysTick_ini();
+	LED_ini();
+	
+	while(1) 
 	{
-		i++;
+		if (flag == 1)
+		{
+			GPIOB->ODR ^= GPIO_ODR_ODR_7;
+		}			
 	}
 }
+
