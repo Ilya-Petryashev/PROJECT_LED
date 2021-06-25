@@ -4,18 +4,7 @@
 //#define TICKINT	(1 << 1)
 //#define ENABLE	(1 << 0)
 
-void SysTick_Handler(void)
-{
-	if(delay_count > 0)
-	{
-		delay_count--;
-	}
-	else {flag = 1;}
-	
-}
-//-----------------------------------------------------------------------------------
-//
-//-----------------------------------------------------------------------------------
+
 void SysTick_ini(void)
 {
 //	SysTick_Type Init_SysTick;

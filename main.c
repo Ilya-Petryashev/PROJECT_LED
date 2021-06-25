@@ -3,6 +3,19 @@
 #include "SysTimer.h"
 #include "LED.h"
 
+uint32_t delay_count = 0;
+uint8_t flag = 0;
+
+void SysTick_Handler(void)
+{
+	if(delay_count > 0)
+	{
+		delay_count--;
+	}
+	else {flag = 1;}
+	
+}
+
 int main(void)
 {
 	Clock_ini();
@@ -14,6 +27,7 @@ int main(void)
 		if (flag == 1)
 		{
 			GPIOB->ODR ^= GPIO_ODR_ODR_7;
+			delay_count = 20;
 		}			
 	}
 }
