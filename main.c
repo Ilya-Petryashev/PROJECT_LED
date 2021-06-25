@@ -27,7 +27,7 @@ int main(void)
 		if (flag == 1)
 		{
 			flag = 0;
-			delay_count = 20;
+			delay_count = 9;
 			GPIOB->ODR ^= GPIO_ODR_ODR_7;
 		}			
 	}
